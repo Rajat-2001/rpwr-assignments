@@ -1,0 +1,17 @@
+Talker/Listener Observations:
+
+1. When talker starts first, then listener:
+- The talker continuously publishes messages
+- The listener receives messages as soon as it starts
+- The listener only receives messages published AFTER it started
+
+2. When listener starts first, then talker:
+- The listener waits silently until a talker appears
+- As soon as the talker starts, the listener begins receiving messages
+
+3. Empirical relation:
+- The talker (publisher) and listener (subscriber) are independent nodes
+- They communicate through a ROS topic
+- Order of starting does not matter - they automatically find each other
+- If talker stops, listener stops receiving but does not crash
+- If listener stops, talker continues publishing
