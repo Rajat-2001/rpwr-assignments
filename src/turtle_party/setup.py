@@ -9,7 +9,7 @@ setup(
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
-        ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name, ['package.xml', 'launch/turtles_gone_wild.launch']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-		'follow = turtle_party.follow:main',
+                'follow = turtle_party.follow:main',
         ],
     },
 )

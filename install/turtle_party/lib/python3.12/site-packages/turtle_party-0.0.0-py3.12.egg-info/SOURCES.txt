@@ -8,6 +8,7 @@ setup.py
 ../../build/turtle_party/turtle_party.egg-info/requires.txt
 ../../build/turtle_party/turtle_party.egg-info/top_level.txt
 ../../build/turtle_party/turtle_party.egg-info/zip-safe
+launch/turtles_gone_wild.launch
 resource/turtle_party
 test/test_copyright.py
 test/test_flake8.py
