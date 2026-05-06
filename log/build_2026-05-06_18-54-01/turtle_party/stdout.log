@@ -1,0 +1,22 @@
+running egg_info
+writing ../../build/turtle_party/turtle_party.egg-info/PKG-INFO
+writing dependency_links to ../../build/turtle_party/turtle_party.egg-info/dependency_links.txt
+writing entry points to ../../build/turtle_party/turtle_party.egg-info/entry_points.txt
+writing requirements to ../../build/turtle_party/turtle_party.egg-info/requires.txt
+writing top-level names to ../../build/turtle_party/turtle_party.egg-info/top_level.txt
+reading manifest file '../../build/turtle_party/turtle_party.egg-info/SOURCES.txt'
+writing manifest file '../../build/turtle_party/turtle_party.egg-info/SOURCES.txt'
+running build
+running build_py
+copying turtle_party/follow.py -> /home/rajat/rpwr-assignments/build/turtle_party/build/lib/turtle_party
+running install
+running install_lib
+copying /home/rajat/rpwr-assignments/build/turtle_party/build/lib/turtle_party/follow.py -> /home/rajat/rpwr-assignments/install/turtle_party/lib/python3.12/site-packages/turtle_party
+byte-compiling /home/rajat/rpwr-assignments/install/turtle_party/lib/python3.12/site-packages/turtle_party/follow.py to follow.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/rajat/rpwr-assignments/install/turtle_party/lib/python3.12/site-packages/turtle_party-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/turtle_party/turtle_party.egg-info to /home/rajat/rpwr-assignments/install/turtle_party/lib/python3.12/site-packages/turtle_party-0.0.0-py3.12.egg-info
+running install_scripts
+Installing follow script to /home/rajat/rpwr-assignments/install/turtle_party/lib/turtle_party
+writing list of installed files to '/home/rajat/rpwr-assignments/build/turtle_party/install.log'
