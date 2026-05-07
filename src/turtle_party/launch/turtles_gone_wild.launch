@@ -20,7 +20,7 @@ def generate_launch_description():
             parameters=[{'turtlename': 'turtle1'}]
         ),
 
-        # Spawn turtle2 via service call after 2 seconds
+        # Spawn turtle2 after 2 seconds
         TimerAction(
             period=2.0,
             actions=[
@@ -33,7 +33,20 @@ def generate_launch_description():
             ]
         ),
 
-        # Broadcast turtle2 TF after spawn
+        # Spawn turtle3 after 3 seconds
+        TimerAction(
+            period=3.0,
+            actions=[
+                ExecuteProcess(
+                    cmd=['ros2', 'service', 'call', '/spawn',
+                         'turtlesim/srv/Spawn',
+                         '{x: 8.0, y: 8.0, theta: 0.0, name: "turtle3"}'],
+                    output='screen'
+                )
+            ]
+        ),
+
+        # Broadcast turtle2 TF
         TimerAction(
             period=6.0,
             actions=[
@@ -46,17 +59,46 @@ def generate_launch_description():
             ]
         ),
 
-        # Start follow node after everything is ready
+        # Broadcast turtle3 TF
+        TimerAction(
+            period=6.5,
+            actions=[
+                Node(
+                    package='turtle_tf2_py',
+                    executable='turtle_tf2_broadcaster',
+                    name='broadcaster3',
+                    parameters=[{'turtlename': 'turtle3'}]
+                ),
+            ]
+        ),
+
+        # turtle2 chases turtle1
         TimerAction(
             period=8.0,
             actions=[
                 Node(
                     package='turtle_party',
                     executable='follow',
-                    name='follow',
+                    name='follow_turtle2',
                     parameters=[
                         {'target_frame': 'turtle1'},
                         {'turtle_name': 'turtle2'}
+                    ]
+                ),
+            ]
+        ),
+
+        # turtle3 chases turtle2
+        TimerAction(
+            period=8.5,
+            actions=[
+                Node(
+                    package='turtle_party',
+                    executable='follow',
+                    name='follow_turtle3',
+                    parameters=[
+                        {'target_frame': 'turtle2'},
+                        {'turtle_name': 'turtle3'}
                     ]
                 ),
             ]
