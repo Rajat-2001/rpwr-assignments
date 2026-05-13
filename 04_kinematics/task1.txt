@@ -1,0 +1,17 @@
+Robot Kinematics vs. Dynamics for a Differential Drive Turtle Robot
+
+1. Forward Kinematics (FK)
+Concept: Calculating the robot's overall velocity and position based on the movement of its individual joints (wheels).
+Differential Drive Context: If we know the rotational speeds (RPM or rad/s) of the left wheel and the right wheel, Forward Kinematics calculates the robot's resulting linear velocity (v) and angular velocity (ω). It answers the question: "If my wheels are spinning at these specific speeds, how fast and in what direction is the robot moving through the world?"
+
+2. Inverse Kinematics (IK)
+Concept: Calculating the required joint (wheel) movements needed to achieve a desired overall robot velocity or position.
+Differential Drive Context: If the navigation stack commands the robot to move forward at 0.5 m/s and turn at 0.2 rad/s (the target twist), Inverse Kinematics calculates the exact rotational speed the left wheel and the right wheel must spin to execute that command. It answers the question: "To move exactly like this, how fast must I spin each individual wheel?"
+
+3. Forward Dynamics (FD)
+Concept: Calculating the robot's acceleration and resulting motion based on the forces/torques applied to its joints, taking into account the robot's mass, inertia, and friction.
+Differential Drive Context: If a specific electrical current (torque) is applied to the left and right wheel motors, Forward Dynamics calculates how the robot will actually accelerate. This accounts for the heavy chassis mass, the friction of the wheels on the floor, and inertia. It answers the question: "If I apply this much motor torque, how will the robot physically accelerate given its weight and environment?"
+
+4. Inverse Dynamics (ID)
+Concept: Calculating the forces or torques required at the joints to achieve a specific desired acceleration or trajectory.
+Differential Drive Context: If we want the robot to accelerate from a standstill to 1.0 m/s smoothly in 2 seconds, Inverse Dynamics calculates the exact motor torques needed at the left and right wheels to overcome the robot's inertia and ground friction to make that happen. It answers the question: "To achieve this specific acceleration profile, how much force/torque must my wheel motors generate?"
