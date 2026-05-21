@@ -1,0 +1,22 @@
+Robotic Sensing: LiDAR Utility, Limitations, and Error Handling
+
+1. LiDAR Utility and Constraints
+- Application: The primary use of a fixed 1D LiDAR on a differential drive robot is simple distance measurement along a single line of sight (e.g., detecting obstacles directly in front of the robot to prevent collisions). For tracking the robot's pose (position and orientation), proprioceptive sensors like Wheel Encoders (for odometry) and an IMU (Inertial Measurement Unit) are the appropriate sensors.
+
+- Limitations: A 1D LiDAR will fail in these three scenarios:
+  1. Transparent Obstacles: Laser beams pass right through glass doors or windows, causing the robot to crash.
+  2. Specular/Reflective Surfaces: Mirrors or highly polished metal deflect the laser beam away from the receiver, returning infinite or false distances.
+  3. Out-of-Plane Obstacles: Because it only scans a single 2D plane, it will completely miss overhanging obstacles (like a table edge) or low obstacles (like a small box on the floor).
+
+- Mitigation: To overcome these blind spots, I would integrate Ultrasonic Sensors (Sonar) or an RGB-D Camera. Sonar uses sound waves, so it detects glass and mirrors perfectly. It also has a wider, cone-shaped field of view, which helps catch objects slightly above or below the strict 1D LiDAR plane.
+
+2. Error Analysis and Denoising
+- Systematic vs. Random Errors: 
+  Systematic Errors are predictable, consistent offsets (e.g., the sensor always reads exactly 5cm too far due to a slight physical mounting tilt). 
+  Random Errors are unpredictable fluctuations in readings caused by environmental noise, temperature variations, or electrical interference.
+
+- Error Removal: 
+  To remove Random Errors, we use statistical filtering techniques, such as a Moving Average Filter or a Kalman Filter, which smooth out the noise over time. 
+  To remove Systematic Errors, we apply a fixed mathematical correction/offset to the raw data to compensate for the known deviation.
+
+- Calibration: The process of identifying and removing Systematic Errors is formally known as Calibration.
