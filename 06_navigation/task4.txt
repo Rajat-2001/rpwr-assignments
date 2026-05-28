@@ -1,0 +1,28 @@
+Task 4 - Uncertainty
+
+1. Distinguish between epistemic uncertainty and ontological uncertainty. (0.4Pt)
+- Epistemic Uncertainty: Uncertainty caused by a lack of knowledge or information (e.g., sensor noise). It can be reduced by gathering more data or using better sensors.
+- Ontological (Aleatoric) Uncertainty: Inherent randomness in the physical world (e.g., a wheel slipping on dust). It cannot be reduced by gathering more data because the environment itself is unpredictable.
+
+2. What can x_t, z_t, u_t, m concretely be? (0.4Pt)
+- State (x_t): The robot's 2D pose in the environment: (x, y, theta).
+- Observation (z_t): Sensor data, such as an array of distance measurements from the LiDAR scanner.
+- Control (u_t): The movement command sent to the motors: linear and angular velocity (v, w).
+- Map (m): The known environment, such as an Occupancy Grid Map where pixels represent obstacle probabilities.
+
+3. Which probability describes the motion, observation and state model? (0.4Pt)
+- Motion Model: P(x_t | x_{t-1}, u_t)
+- Observation (Sensor) Model: P(z_t | x_t, m)
+- State Model (Belief): Bel(x_t) = P(x_t | z_{1:t}, u_{1:t})
+
+4. What are the advantages and inconvenients of MAP and MLE? (0.4Pt)
+- MLE (Maximum Likelihood Estimate):
+  - Advantages: Purely data-driven, objective, and simpler to compute (only relies on current observation).
+  - Inconveniences: Prone to overfitting, performs poorly with sparse/noisy data, and ignores previous knowledge.
+- MAP (Maximum A Posteriori):
+  - Advantages: Incorporates prior knowledge, making it robust against noisy data and preventing overfitting.
+  - Inconveniences: Computationally heavier and requires the developer to mathematically define a subjective "prior" belief.
+
+5. Illustrate how they are used for the localization problem above. (0.4Pt)
+- Using MLE: The robot relies entirely on its current LiDAR scan (z_t) to find the pose (x_t) that best aligns with the map (m), ignoring its previous position. 
+- Using MAP: The robot combines its current LiDAR scan with its prior belief of where it should be based on previous movements (odometry). It asks, "Given where I drove, and how well this scan fits the map, where am I most likely to be?"
