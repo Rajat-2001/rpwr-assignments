@@ -6,3 +6,6 @@ Grade: 5/12. Very unsatisfactory performance on task 2 and 3 (wrong robot geomet
 
 Assignment 3:
 Grade: 10/15. Answer to task 1 not found.The goal of the control is to take a goal from planning and reach it. Your planner is the master node and the knowledge and map system are your memory.  The map is updated by state estimation and perception. knowledge stores the map and uses it to support spatial reasoning. The map has a static part, this is what SLAM discovers, the most stable structure of the world that can be used by planning for deliberative planning, but perception and state estimation, will continuously update the map with dynamic objects (also known as costmap vs map), which is essential for reactive planning at motion control level. Note that reactive planning can also be performed. Your interface package would contain msgs, sercices, actions and urdf for rviz visualization. You can use the camera as well for SLAM. The cognitive arcchitecture package, launch all the nodes from and ensure they are appropriately connected. It is the protocol that ensures module nodes are connected, work and communicate as intended. Finally, control, be it at the kinematic or dynamic level, can be closed or open.
+
+Assignment 3:
+Grade: 2.75/5. Very unmatched robot urdf model (see picture of robot in Assignment 2).
