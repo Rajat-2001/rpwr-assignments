@@ -18,4 +18,6 @@ Grade: 8/10 (Good). I appreciate your effort. In order to implement successful r
 
 The only field of knowledge inquiry that seriously adopted the concept of ontological uncertainty (wheel slip is not ontological uncertainty) is the standard interpretation (copenhagen) of quantum mechanics, but other valid interpretations (bohmian) have quickly shown that epistemic uncertainty can be adopted as well at quantum level. So this being said, the most important for you as roboticists is the following: In situation of uncertainty, there is hope to reduce uncertainty with gain of knowledge (epistemic) and given an uncertain situation, be it epistemic or ontological, even if I can reduce uncertainty, I have to quantify it so that subsequent processes can react robustly to my outputs in a way that guarantees success and safety.
 
+The map is successfully built when the boundaries of the static obstacles look black (p=1), their inner parts look grey (p=0.5, unknown) and the free place white (p=0, nothing). Navigation is successful when the particle gather at the same place ie. not too much spread and the robot does not jump from points to points and other reasons.
+
 Finally, the state model contain the map variable M.
